@@ -51,7 +51,12 @@
       "id": 4,
       "title": "test",
       "description": "test",
-      "rating": [],
+      "rating": [
+        null,
+        null,
+        null,
+        "3"
+      ],
       "created": 1591316011473
     },
     {
