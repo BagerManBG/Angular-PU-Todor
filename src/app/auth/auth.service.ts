@@ -29,16 +29,18 @@ export class AuthService {
     });
   }
 
-  login(username: string, password: string): Observable<UserInterface> {
+  login(email: string, password: string): Observable<UserInterface> {
     return new Observable((observer) => {
       this.getAllUsers()
         .subscribe((allUsers) => {
           const user = allUsers
-            .find(u => u.email === username && u.password === password);
+            .find(u => u.email === email && u.password === password);
 
           if (user) {
             sessionStorage.setItem('loggedUser', JSON.stringify(user));
-            this.currentUserData = this.getCurrentUser();
+            this.currentUserData = user;
+            window.location.href = '/courses/list';
+
             observer.next(user);
             observer.complete();
           } else {

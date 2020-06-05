@@ -24,10 +24,10 @@
   "courses": [
     {
       "id": 1,
-      "title": "Test",
+      "title": "Test1",
       "rating": [],
       "created": 1591315749823,
-      "description": "Test"
+      "description": "Test2"
     },
     {
       "id": 2,

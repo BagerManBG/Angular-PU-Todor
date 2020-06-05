@@ -12,7 +12,7 @@
       </div>
       <div class="card-footer d-flex justify-content-between w-100">
         <a *ngIf="isAdmin" href="/courses/edit/{{ course?.id }}"><button class="btn btn-primary">Edit</button></a>
-        <a *ngIf="isAdmin" href="/courses/view/{{ course?.id }}"><button class="btn btn-primary">View</button></a>
+        <a *ngIf="isAdmin" href="/courses/list/{{ course?.id }}"><button class="btn btn-primary">View</button></a>
         <button class="btn btn-primary">Add to liked</button>
       </div>
     </div>

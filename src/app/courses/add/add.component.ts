@@ -19,7 +19,7 @@ export class AddComponent implements OnInit {
     }
 
     if (!this.isAdmin) {
-      this.router.navigateByUrl('course/list');
+      this.router.navigateByUrl('courses/list');
     }
   }
 

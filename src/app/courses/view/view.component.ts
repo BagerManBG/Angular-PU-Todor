@@ -19,8 +19,8 @@ export class ViewComponent implements OnInit {
       this.router.navigateByUrl('auth/login');
     }
 
-    if (!this.isAdmin) {
-      this.router.navigateByUrl('course/list');
+    if (this.isLogged && !this.isAdmin) {
+      this.router.navigateByUrl('courses/list');
     }
   }
 
