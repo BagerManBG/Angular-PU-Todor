@@ -45,4 +45,13 @@ export class CoursesService {
     return this.http.get<CourseInterface>(this.baseUrl + '/courses/' + id);
   }
 
+  favourite(user: UserInterface): Observable<UserInterface> {
+    return new Observable((observer) => {
+      this.http.patch(`${this.baseUrl}/users/${user.id}`, user)
+        .subscribe(() => {
+          sessionStorage.setItem('loggedUser', JSON.stringify(user));
+          observer.complete();
+        });
+    });
+  }
 }

@@ -9,13 +9,15 @@ import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
+import { FavsComponent } from './favs/favs.component';
 
 @NgModule({
   declarations: [
     ListComponent,
     AddComponent,
     ViewComponent,
-    EditComponent
+    EditComponent,
+    FavsComponent
   ],
   imports: [
     CommonModule,

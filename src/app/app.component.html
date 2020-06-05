@@ -3,6 +3,7 @@
     <li class="nav-item dropdown" ngbDropdown>
       <a class="nav-link dropdown-toggle" [routerLink]="" id="navbardrop_courses" ngbDropdownToggle>Courses</a>
       <div class="dropdown-menu" ngbDropdownMenu>
+        <a class="dropdown-item" href="courses/list/favourites" ngbDropdownItem>Favourites</a>
         <a class="dropdown-item" href="courses/list" ngbDropdownItem>List</a>
         <a *ngIf="isAdmin" class="dropdown-item" href="courses/add" ngbDropdownItem>Add</a>
       </div>

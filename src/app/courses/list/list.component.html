@@ -35,7 +35,7 @@
                 <input type="radio" class="form-check-input" id="radio5-{{ course.id }}" name="optradio-{{ course.id }}" value="5">5
               </label>
             </div>
-            <button class="btn btn-info d-inline-block">Rate</button>
+            <button class="btn btn-info d-inline-block mt-2">Rate</button>
 <!--          </form>-->
         </div>
         <p class="mt-3">Created: {{ this.coursesDates[course.id] }}</p>
@@ -43,7 +43,8 @@
       <div class="card-footer d-flex justify-content-between w-100">
         <a *ngIf="isAdmin" href="/courses/edit/{{ course?.id }}"><button class="btn btn-primary">Edit</button></a>
         <a *ngIf="isAdmin" href="/courses/list/{{ course?.id }}"><button class="btn btn-primary">View</button></a>
-        <button class="btn btn-primary">Add to liked</button>
+        <button *ngIf="!this.isFav(course)" class="btn btn-primary" (click)="this.addFavourite(course)">Add to liked</button>
+        <button *ngIf="this.isFav(course)" class="btn btn-danger" (click)="this.removeFavourite(course)">Remove liked</button>
       </div>
     </div>
   </div>

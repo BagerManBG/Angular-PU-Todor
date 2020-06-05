@@ -3,6 +3,7 @@ import {ListComponent} from './list/list.component';
 import {AddComponent} from './add/add.component';
 import {ViewComponent} from './view/view.component';
 import {EditComponent} from './edit/edit.component';
+import {FavsComponent} from './favs/favs.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,10 @@ export const routes: Routes = [
       {
         path: 'add',
         component: AddComponent
+      },
+      {
+        path: 'list/favourites',
+        component: FavsComponent
       },
       {
         path: 'list/:id',

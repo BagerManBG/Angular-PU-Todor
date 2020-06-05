@@ -8,7 +8,10 @@
       "password": "admin",
       "isAdmin": true,
       "isBlocked": false,
-      "courses": []
+      "courses": [
+        4,
+        3
+      ]
     },
     {
       "id": 6,
