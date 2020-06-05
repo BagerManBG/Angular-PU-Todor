@@ -37,4 +37,8 @@ export class ViewComponent implements OnInit {
     });
   }
 
+  delete() {
+    this.cs.delete(this.course);
+  }
+
 }

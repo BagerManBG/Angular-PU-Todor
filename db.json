@@ -11,31 +11,27 @@
       "courses": []
     },
     {
-      "id": 4,
+      "id": 6,
       "firstName": "Test",
       "lastName": "Test",
-      "email": "musaka@musa.ka",
-      "password": "admin1",
+      "email": "admin3@abv.bg",
+      "password": "Testtest",
+      "isAdmin": false,
+      "isBlocked": false,
+      "courses": []
+    },
+    {
+      "id": 8,
+      "firstName": "Test",
+      "lastName": "Test",
+      "email": "admin5@abv.bg",
+      "password": "testtest",
       "isAdmin": false,
       "isBlocked": false,
       "courses": []
     }
   ],
   "courses": [
-    {
-      "id": 1,
-      "title": "Test1",
-      "rating": [],
-      "created": 1591315749823,
-      "description": "Test2"
-    },
-    {
-      "id": 2,
-      "title": "test",
-      "description": "test",
-      "rating": [],
-      "created": 1591315829644
-    },
     {
       "id": 3,
       "title": "test",

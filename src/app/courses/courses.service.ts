@@ -31,6 +31,12 @@ export class CoursesService {
     });
   }
 
+  delete(course: CourseInterface): void {
+    this.http.delete(`${this.baseUrl}/courses/${course.id}`).subscribe(() => {
+      this.router.navigateByUrl('courses/list');
+    });
+  }
+
   getAllCourses(): Observable<CourseInterface[]> {
     return this.http.get<CourseInterface[]>(this.baseUrl + '/courses');
   }

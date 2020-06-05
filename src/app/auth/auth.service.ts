@@ -3,6 +3,7 @@ import {observable, Observable} from 'rxjs';
 import {UserInterface} from '../interfaces/user.interface';
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+import {CourseInterface} from '../interfaces/course.interface';
 
 @Injectable()
 export class AuthService {
@@ -37,12 +38,16 @@ export class AuthService {
             .find(u => u.email === email && u.password === password);
 
           if (user) {
-            sessionStorage.setItem('loggedUser', JSON.stringify(user));
-            this.currentUserData = user;
-            window.location.href = '/courses/list';
+            if (user.isBlocked) {
+              observer.error('Your account has been blocked!');
+            } else {
+              sessionStorage.setItem('loggedUser', JSON.stringify(user));
+              this.currentUserData = user;
+              window.location.href = '/courses/list';
 
-            observer.next(user);
-            observer.complete();
+              observer.next(user);
+              observer.complete();
+            }
           } else {
             observer.error('Incorrect username/password!');
           }
@@ -50,14 +55,20 @@ export class AuthService {
     });
   }
 
+  delete(user: UserInterface): void {
+    this.http.delete(`${this.baseUrl}/users/${user.id}`).subscribe(() => {
+      window.location.reload();
+    });
+  }
+
   logout(): void {
     sessionStorage.removeItem('loggedUser');
     this.currentUserData = null;
-    this.router.navigateByUrl('auth/login');
+    window.location.href = 'auth/login';
   }
 
   getAllUsers(): Observable<UserInterface[]> {
-    return this.http.get<UserInterface[]>('http://localhost:3000/users');
+    return this.http.get<UserInterface[]>(`${this.baseUrl}/users/`);
   }
 
   getCurrentUser(): UserInterface {
@@ -74,5 +85,15 @@ export class AuthService {
 
   getCurrentUserNames(): string {
     return this.isLogged() ? `${this.currentUserData.firstName} ${this.currentUserData.lastName}` : '';
+  }
+
+  block(user: UserInterface) {
+    user.isBlocked = true;
+    this.http.patch(`${this.baseUrl}/users/${user.id}`, user);
+  }
+
+  unblock(user: UserInterface) {
+    user.isBlocked = false;
+    this.http.patch(`${this.baseUrl}/users/${user.id}`, user);
   }
 }

@@ -7,6 +7,7 @@
       <p><b>Created</b>: {{ this.createdDate }}</p>
       <p><b>Rating</b>: 0</p>
       <a href="/courses/edit/{{ this.course?.id }}"><button class="btn btn-primary">Edit</button></a>
+      <a [routerLink]="" class="ml-3" (click)="this.delete()"><button class="btn btn-danger">Delete</button></a>
     </div>
   </div>
 </div>
