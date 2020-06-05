@@ -41,8 +41,6 @@ export class CourseItemComponent implements OnInit {
       this.rating /= ratingCount;
       this.rating = Math.round((this.rating + Number.EPSILON) * 100) / 100;
     }
-
-    console.log((this.course.rating[this.as.currentUserData.id] === '2'));
   }
 
   addFavourite(course: CourseInterface) {
@@ -70,7 +68,6 @@ export class CourseItemComponent implements OnInit {
   }
 
   isChecked(radio: number): boolean {
-    console.log(Boolean(this.course.rating[this.as.currentUserData.id] == radio));
     return Boolean(this.course.rating[this.as.currentUserData.id] == radio);
   }
 }
