@@ -1,0 +1,36 @@
+<div class="container h-100">
+  <h1>Register</h1>
+  <div class="row h-100 w-100 justify-content-center align-items-center">
+    <div class="form user-form w-50">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="form-group row">
+          <div class="col-6">
+            <label for="firstName">First name:</label>
+            <input type="text" class="form-control" placeholder="Enter first name" id="firstName" formControlName="firstName">
+            <small *ngIf="registerForm.get('firstName').errors?.required" class="text-danger">First name is required</small>
+            <small *ngIf="registerForm.get('firstName').errors?.minlength" class="text-danger">First name must be longer that 2 letters</small>
+          </div>
+          <div class="col-6">
+            <label for="lastName">Last name:</label>
+            <input type="text" class="form-control" placeholder="Enter last name" id="lastName" formControlName="lastName">
+            <small *ngIf="registerForm.get('lastName').errors?.required" class="text-danger">Last name is required</small>
+            <small *ngIf="registerForm.get('lastName').errors?.minlength" class="text-danger">Last name must be longer that 2 letters</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" placeholder="Enter email" id="email" formControlName="email">
+          <small *ngIf="registerForm.get('email').errors?.required" class="text-danger">Email is required</small>
+          <small *ngIf="registerForm.get('email').errors?.pattern" class="text-danger">Please provide a valid email address</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" placeholder="Enter password" id="password" formControlName="password">
+          <small *ngIf="registerForm.get('password').errors?.required" class="text-danger">Password is required</small>
+          <small *ngIf="registerForm.get('password').errors?.minlength" class="text-danger">Password must be longer that 5 letters</small>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

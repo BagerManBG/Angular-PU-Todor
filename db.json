@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": 3,
+      "firstName": "Todor",
+      "lastName": "Nikolov",
+      "email": "admin@abv.bg",
+      "password": "admin",
+      "isAdmin": true,
+      "isBlocked": false,
+      "courses": []
+    },
+    {
+      "id": 4,
+      "firstName": "Test",
+      "lastName": "Test",
+      "email": "musaka@musa.ka",
+      "password": "admin1",
+      "isAdmin": false,
+      "isBlocked": false,
+      "courses": []
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Test",
+      "rating": [],
+      "created": 1591315749823,
+      "description": "Test"
+    },
+    {
+      "id": 2,
+      "title": "test",
+      "description": "test",
+      "rating": [],
+      "created": 1591315829644
+    },
+    {
+      "id": 3,
+      "title": "test",
+      "description": "test",
+      "rating": [],
+      "created": 1591315938248
+    },
+    {
+      "id": 4,
+      "title": "test",
+      "description": "test",
+      "rating": [],
+      "created": 1591316011473
+    },
+    {
+      "id": 5,
+      "title": "test11",
+      "description": "test22",
+      "rating": [],
+      "created": 1591316303489
+    }
+  ]
+}

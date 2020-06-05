@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-pu-todor';
+  public title = 'angular-pu-todor';
+
+  constructor(public as: AuthService) { }
+
+  get isLogged() {return this.as.isLogged(); }
+
+  get isAdmin() {return this.as.isAdmin(); }
+
+  get user() {return this.as.currentUserData; }
+
+  get userNames() {return this.as.getCurrentUserNames(); }
+
+  logout(): void {
+    this.as.logout();
+  }
 }

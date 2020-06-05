@@ -1,0 +1,20 @@
+<div *ngIf="isLogged" class="container h-100">
+  <h1 class="mb-4">View courses</h1>
+  <div class="row h-100 w-100 d-flex flex-wrap justify-content-center">
+    <div class="card col-3 p-0 m-3" *ngFor="let course of courses">
+      <div class="card-header w-100">
+        <h3>{{ course?.title }}</h3>
+      </div>
+      <div class="card-body w-100">
+        <p>{{ course?.description }}</p>
+        <p>Rating: 0</p>
+        <p>Created: {{ this.coursesDates[course.id] }}</p>
+      </div>
+      <div class="card-footer d-flex justify-content-between w-100">
+        <a *ngIf="isAdmin" href="/courses/edit/{{ course?.id }}"><button class="btn btn-primary">Edit</button></a>
+        <a *ngIf="isAdmin" href="/courses/view/{{ course?.id }}"><button class="btn btn-primary">View</button></a>
+        <button class="btn btn-primary">Add to liked</button>
+      </div>
+    </div>
+  </div>
+</div>

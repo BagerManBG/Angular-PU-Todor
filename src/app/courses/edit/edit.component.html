@@ -1,0 +1,18 @@
+<div class="container h-100">
+  <h1>Add course</h1>
+  <div class="row h-100 w-100 justify-content-center align-items-center">
+    <div class="form user-form w-50">
+      <form [formGroup]="editCourseForm" (ngSubmit)="editCourse()">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" [value]="course.title" placeholder="Enter title" id="title" formControlName="title">
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea class="form-control" placeholder="Enter description" id="description" formControlName="description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!editCourseForm.valid">Edit</button>
+      </form>
+    </div>
+  </div>
+</div>

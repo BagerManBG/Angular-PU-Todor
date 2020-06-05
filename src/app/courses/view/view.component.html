@@ -1,0 +1,12 @@
+<div class="container h-100">
+  <h1>View course #{{ this.course?.id }}</h1>
+  <div class="row h-100 w-100 justify-content-center align-items-center">
+    <div class="form user-form w-50">
+      <p><b>Title</b>: {{ this.course?.title }}</p>
+      <p><b>Description</b>: {{ this.course?.description }}</p>
+      <p><b>Created</b>: {{ this.createdDate }}</p>
+      <p><b>Rating</b>: 0</p>
+      <a href="/courses/edit/{{ this.course?.id }}"><button class="btn btn-primary">Edit</button></a>
+    </div>
+  </div>
+</div>
