@@ -10,6 +10,7 @@ import { AddComponent } from './add/add.component';
 import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
 import { FavsComponent } from './favs/favs.component';
+import { CourseItemComponent } from './course-item/course-item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FavsComponent } from './favs/favs.component';
     AddComponent,
     ViewComponent,
     EditComponent,
-    FavsComponent
+    FavsComponent,
+    CourseItemComponent
   ],
   imports: [
     CommonModule,

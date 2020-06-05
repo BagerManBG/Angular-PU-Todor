@@ -54,4 +54,14 @@ export class CoursesService {
         });
     });
   }
+
+  rate(rating: number, courseId: number, userId: number) {
+    this.getCourse(courseId).subscribe(course => {
+      // @ts-ignore
+      course.rating[userId] = rating;
+
+      this.http.patch(`${this.baseUrl}/courses/${course.id}`, course)
+        .subscribe(() => {window.location.reload(); });
+    });
+  }
 }

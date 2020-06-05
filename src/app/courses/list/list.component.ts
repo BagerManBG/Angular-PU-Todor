@@ -3,6 +3,7 @@ import {CourseInterface} from '../../interfaces/course.interface';
 import {CoursesService} from '../courses.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +15,7 @@ export class ListComponent implements OnInit {
   courses: CourseInterface[];
   coursesDates: string[];
 
-  constructor(private cs: CoursesService, private router: Router, private as: AuthService) {
+  constructor(private cs: CoursesService, private router: Router, private as: AuthService, private fb: FormBuilder) {
     if (!this.isLogged) {
       this.router.navigateByUrl('auth/login');
     }
@@ -35,24 +36,5 @@ export class ListComponent implements OnInit {
         }
       }
     });
-  }
-
-  addFavourite(course: CourseInterface) {
-    if (this.as.currentUserData.courses.indexOf(course.id) < 0) {
-      this.as.currentUserData.courses.push(course.id);
-      this.cs.favourite(this.as.currentUserData).subscribe();
-    }
-  }
-
-  removeFavourite(course: CourseInterface) {
-    const index = this.as.currentUserData.courses.indexOf(course.id);
-    if (index >= 0) {
-      this.as.currentUserData.courses.splice(index, 1);
-      this.cs.favourite(this.as.currentUserData).subscribe();
-    }
-  }
-
-  isFav(course: CourseInterface) {
-    return (this.as.currentUserData.courses.indexOf(course.id) >= 0);
   }
 }

@@ -37,25 +37,4 @@ export class FavsComponent implements OnInit {
     });
   }
 
-  addFavourite(course: CourseInterface) {
-    if (this.as.currentUserData.courses.indexOf(course.id) < 0) {
-      this.as.currentUserData.courses.push(course.id);
-      this.cs.favourite(this.as.currentUserData).subscribe();
-    }
-  }
-
-  removeFavourite(course: CourseInterface) {
-    const index = this.as.currentUserData.courses.indexOf(course.id);
-    if (index >= 0) {
-      this.as.currentUserData.courses.splice(index, 1);
-      this.cs.favourite(this.as.currentUserData).subscribe(() => {}, () => {}, () => {
-        window.location.reload();
-      });
-    }
-  }
-
-  isFav(course: CourseInterface) {
-    return (this.as.currentUserData.courses.indexOf(course.id) >= 0);
-  }
-
 }
